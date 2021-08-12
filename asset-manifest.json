@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/design-hub/static/css/main.f952c61b.chunk.css",
+    "main.js": "/design-hub/static/js/main.4554dc11.chunk.js",
+    "main.js.map": "/design-hub/static/js/main.4554dc11.chunk.js.map",
+    "runtime-main.js": "/design-hub/static/js/runtime-main.abebd713.js",
+    "runtime-main.js.map": "/design-hub/static/js/runtime-main.abebd713.js.map",
+    "static/js/2.eaafe8b9.chunk.js": "/design-hub/static/js/2.eaafe8b9.chunk.js",
+    "static/js/2.eaafe8b9.chunk.js.map": "/design-hub/static/js/2.eaafe8b9.chunk.js.map",
+    "static/js/3.a958943d.chunk.js": "/design-hub/static/js/3.a958943d.chunk.js",
+    "static/js/3.a958943d.chunk.js.map": "/design-hub/static/js/3.a958943d.chunk.js.map",
+    "index.html": "/design-hub/index.html",
+    "static/css/main.f952c61b.chunk.css.map": "/design-hub/static/css/main.f952c61b.chunk.css.map",
+    "static/js/2.eaafe8b9.chunk.js.LICENSE.txt": "/design-hub/static/js/2.eaafe8b9.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/design-hub/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.abebd713.js",
+    "static/js/2.eaafe8b9.chunk.js",
+    "static/css/main.f952c61b.chunk.css",
+    "static/js/main.4554dc11.chunk.js"
+  ]
+}
