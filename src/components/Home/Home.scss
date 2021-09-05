@@ -1,0 +1,49 @@
+@import "../../App.scss";
+
+@keyframes slidein {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(150px, 0px);
+  }
+
+  80% {
+    transform: translate(-150px, 0px);
+  }
+}
+
+@keyframes spinner {
+  from {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  to {
+    transform: rotateX(-180deg) rotateZ(-2deg);
+  }
+}
+
+.home {
+  background-image: url("https://res.cloudinary.com/dwbqzx4rr/image/upload/v1628730723/Design%20hub/coffee_qxadlj.jpg");
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  @include center-all;
+  position: absolute;
+  perspective: 100px;
+
+  // &:hover {
+  //   animation-name: spinner;
+  //   animation-timing-function: linear;
+  //   animation-duration: 3s;
+  //   transform-style: preserve-3d;
+  // }
+
+  p {
+    margin: 0;
+    font-size: 3rem;
+    animation: 5s slidein ease-in-out;
+  }
+}
