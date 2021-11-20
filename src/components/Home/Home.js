@@ -1,12 +1,13 @@
 import React from "react";
 import "./Home.scss";
 
-function Home() {
+export default function Home() {
   return (
     <div className="home">
-      <p>Welcome to My Design Hub</p>
+      {" "}
+      <div className="overlay-background">
+        <p>Welcome to My Design Hub!</p>
+      </div>
     </div>
   );
 }
-
-export default Home;

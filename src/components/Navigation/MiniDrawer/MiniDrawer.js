@@ -1,5 +1,4 @@
 import AppBar from "@material-ui/core/AppBar";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import Divider from "@material-ui/core/Divider";
 import Drawer from "@material-ui/core/Drawer";
 import IconButton from "@material-ui/core/IconButton";
@@ -11,20 +10,15 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
 import Tooltip from "@material-ui/core/Tooltip";
 import Typography from "@material-ui/core/Typography";
-import {
-  Feedback,
-  Navigation,
-  ThreeDRotation,
-  TouchApp,
-  ViewCarousel,
-  ViewDay,
-} from "@material-ui/icons";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import MenuIcon from "@material-ui/icons/Menu";
 import clsx from "clsx";
 import React from "react";
-import { drawerItems } from "../../data/drawerItems";
+import { Link, NavLink } from "react-router-dom";
+import { drawerItems } from "../../../data/drawerItems";
+import { useLocation } from "react-router-dom";
+import "./MiniDrawer.scss";
 
 const drawerWidth = 240;
 
@@ -59,6 +53,7 @@ const useStyles = makeStyles((theme) => ({
     whiteSpace: "nowrap",
   },
   drawerOpen: {
+    backgroundColor: "#3D3D3D",
     width: drawerWidth,
     transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
@@ -66,6 +61,8 @@ const useStyles = makeStyles((theme) => ({
     }),
   },
   drawerClose: {
+    backgroundColor: "#3D3D3D",
+    maxWidth: "3.75rem",
     transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -84,10 +81,6 @@ const useStyles = makeStyles((theme) => ({
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,
   },
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing(3),
-  },
 }));
 
 export default function MiniDrawer() {
@@ -95,15 +88,12 @@ export default function MiniDrawer() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
-  const drawerIcons = [
-    <TouchApp />,
-    <ViewDay />,
-    <Navigation />,
-    <Feedback />,
-    <ViewCarousel />,
-    <ThreeDRotation />,
-  ];
+  const location = useLocation();
 
+  //destructuring pathname from location
+  const { pathname } = location;
+
+  //Javascript split method to get the name of the path in array
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -114,12 +104,15 @@ export default function MiniDrawer() {
 
   return (
     <div className={classes.root}>
-      <CssBaseline />
       <AppBar
         position="fixed"
-        className={clsx(classes.appBar, {
-          [classes.appBarShift]: open,
-        })}
+        className={clsx(
+          classes.appBar,
+          {
+            [classes.appBarShift]: open,
+          },
+          "appBar"
+        )}
       >
         <Toolbar>
           <IconButton
@@ -127,15 +120,13 @@ export default function MiniDrawer() {
             aria-label="open drawer"
             onClick={handleDrawerOpen}
             edge="start"
-            className={clsx(classes.menuButton, {
+            className={clsx(classes.menuButton, "menuButton", {
               [classes.hide]: open,
             })}
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
-            Alyssa's Design Hub
-          </Typography>
+          <h2 className={open ? "mobile-hide" : ""}>Design Hub</h2>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -151,59 +142,40 @@ export default function MiniDrawer() {
           }),
         }}
       >
-        <div className={classes.toolbar}>
-          <IconButton onClick={handleDrawerClose}>
+        <div className={clsx(classes.toolbar, "toolbar")}>
+          <IconButton
+            onClick={handleDrawerClose}
+            className="collapse-button__wrapper"
+          >
             {theme.direction === "rtl" ? (
-              <ChevronRightIcon />
+              <ChevronRightIcon className="collapse-button" />
             ) : (
-              <ChevronLeftIcon />
+              <ChevronLeftIcon className="collapse-button" />
             )}
           </IconButton>
         </div>
         <Divider />
-        <List>
-          {drawerItems.map((text, index) => (
-            <Tooltip title={text} disableHoverListener={open}>
-              <ListItem button key={text}>
-                <ListItemIcon>{drawerIcons[index]}</ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
+        <List className="list">
+          {drawerItems.map((item, index) => (
+            <Tooltip title={item.name} disableHoverListener={open}>
+              <Link to={item.url} className="link" onClick={handleDrawerClose}>
+                <ListItem
+                  button
+                  key={item.name}
+                  className={
+                    pathname === item.url
+                      ? "list-item stateActive"
+                      : "list-item"
+                  }
+                >
+                  <ListItemIcon className="link-icon">{item.icon}</ListItemIcon>
+                  <ListItemText primary={item.name} />
+                </ListItem>
+              </Link>
             </Tooltip>
           ))}
         </List>
       </Drawer>
-      <main className={classes.content}>
-        <div className={classes.toolbar} />
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
-          dolor purus non enim praesent elementum facilisis leo vel. Risus at
-          ultrices mi tempus imperdiet. Semper risus in hendrerit gravida rutrum
-          quisque non tellus. Convallis convallis tellus id interdum velit
-          laoreet id donec ultrices. Odio morbi quis commodo odio aenean sed
-          adipiscing. Amet nisl suscipit adipiscing bibendum est ultricies
-          integer quis. Cursus euismod quis viverra nibh cras. Metus vulputate
-          eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo
-          quis imperdiet massa tincidunt. Cras tincidunt lobortis feugiat
-          vivamus at augue. At augue eget arcu dictum varius duis at consectetur
-          lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa sapien
-          faucibus et molestie ac.
-        </Typography>
-        <Typography paragraph>
-          Consequat mauris nunc congue nisi vitae suscipit. Fringilla est
-          ullamcorper eget nulla facilisi etiam dignissim diam. Pulvinar
-          elementum integer enim neque volutpat ac tincidunt. Ornare suspendisse
-          sed nisi lacus sed viverra tellus. Purus sit amet volutpat consequat
-          mauris. Elementum eu facilisis sed odio morbi. Euismod lacinia at quis
-          risus sed vulputate odio. Morbi tincidunt ornare massa eget egestas
-          purus viverra accumsan in. In hendrerit gravida rutrum quisque non
-          tellus orci ac. Pellentesque nec nam aliquam sem et tortor. Habitant
-          morbi tristique senectus et. Adipiscing elit duis tristique
-          sollicitudin nibh sit. Ornare aenean euismod elementum nisi quis
-          eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
-          posuere sollicitudin aliquam ultrices sagittis orci a.
-        </Typography>
-      </main>
     </div>
   );
 }

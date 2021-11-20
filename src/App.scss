@@ -1,3 +1,12 @@
+//In this scss file, all my reusable classes, variables and mixins will be located here
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap");
+
+$color-light: #e9f0f5;
+$almond: #dfd1c3;
+$middle-grey: #8a7c71;
+$pine: #689689;
+$color-dark: #3d3d3d;
+
 @mixin center-all {
   display: flex;
   align-items: center;
@@ -11,10 +20,33 @@
   align-items: $align;
 }
 
+.app {
+  width: 100%;
+  height: 100%;
+}
+
+.content-detail {
+  flex-grow: 1;
+  max-width: calc(100% - 3.5rem);
+  min-height: calc(100% - 3rem);
+  margin-left: 3.5rem;
+  margin-top: 3rem;
+  @include display(row, center, flex-start);
+}
+
 .scene {
   width: 100vw;
   height: 100vh;
   border: 1px solid #ccc;
-  // margin: 80px;
   perspective: -100px;
+}
+
+@media (min-width: 768px) {
+  .content-detail {
+    margin-left: 3.75rem;
+    max-width: calc(100% - 3.75rem);
+  }
+}
+
+@media (min-width: 1024px) {
 }
