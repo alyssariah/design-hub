@@ -9,15 +9,13 @@ import ListItemText from "@material-ui/core/ListItemText";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
 import Tooltip from "@material-ui/core/Tooltip";
-import Typography from "@material-ui/core/Typography";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import MenuIcon from "@material-ui/icons/Menu";
 import clsx from "clsx";
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { drawerItems } from "../../../data/drawerItems";
-import { useLocation } from "react-router-dom";
 import "./MiniDrawer.scss";
 
 const drawerWidth = 240;
@@ -40,9 +38,6 @@ const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),
-  },
-  menuButton: {
-    marginRight: 36,
   },
   hide: {
     display: "none",
@@ -120,7 +115,7 @@ export default function MiniDrawer() {
             aria-label="open drawer"
             onClick={handleDrawerOpen}
             edge="start"
-            className={clsx(classes.menuButton, "menuButton", {
+            className={clsx("menuButton", {
               [classes.hide]: open,
             })}
           >
@@ -163,7 +158,7 @@ export default function MiniDrawer() {
                   button
                   key={item.name}
                   className={
-                    pathname === item.url
+                    pathname === item.url || pathname === item.url + "/"
                       ? "list-item stateActive"
                       : "list-item"
                   }
