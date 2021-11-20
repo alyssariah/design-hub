@@ -3,7 +3,7 @@ import Buttons from "components/Buttons/Buttons";
 import Home from "components/Home/Home";
 import MiniDrawer from "components/Navigation/MiniDrawer/MiniDrawer";
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import "./App.scss";
 
 // const useStyles = makeStyles((theme) => ({
@@ -25,27 +25,28 @@ function App() {
         <MiniDrawer />
         <main className="content-detail">
           <Switch>
-            <Route exact path="/">
+            <Route exact path="/design-hub">
               <Home />
             </Route>
-            <Route path="/buttons">
+            <Route path="/design-hub/buttons">
               <Buttons />
             </Route>
-            <Route path="/cards">
+            <Route path="/design-hub/cards">
               <div>In Process</div>
             </Route>
-            <Route path="/navigation">
+            <Route path="/design-hub/navigation">
               <div>In Process</div>
             </Route>
-            <Route path="/feedback">
+            <Route path="/design-hub/feedback">
               <div>In Process</div>
             </Route>
-            <Route path="/carousels">
+            <Route path="/design-hub/carousels">
               <div>In Process</div>
             </Route>
-            <Route path="/3d-items">
+            <Route path="/design-hub/3d-items">
               <div>In Process</div>
             </Route>
+            <Redirect from="*" to="/design-hub" />
           </Switch>
         </main>
       </div>
