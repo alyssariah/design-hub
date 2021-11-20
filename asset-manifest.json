@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/design-hub/static/css/main.44637746.chunk.css",
-    "main.js": "/design-hub/static/js/main.3179ec63.chunk.js",
-    "main.js.map": "/design-hub/static/js/main.3179ec63.chunk.js.map",
+    "main.js": "/design-hub/static/js/main.73db386e.chunk.js",
+    "main.js.map": "/design-hub/static/js/main.73db386e.chunk.js.map",
     "runtime-main.js": "/design-hub/static/js/runtime-main.7d69b07b.js",
     "runtime-main.js.map": "/design-hub/static/js/runtime-main.7d69b07b.js.map",
-    "static/js/2.b9d9d806.chunk.js": "/design-hub/static/js/2.b9d9d806.chunk.js",
-    "static/js/2.b9d9d806.chunk.js.map": "/design-hub/static/js/2.b9d9d806.chunk.js.map",
+    "static/js/2.7a693152.chunk.js": "/design-hub/static/js/2.7a693152.chunk.js",
+    "static/js/2.7a693152.chunk.js.map": "/design-hub/static/js/2.7a693152.chunk.js.map",
     "static/js/3.10aaef56.chunk.js": "/design-hub/static/js/3.10aaef56.chunk.js",
     "static/js/3.10aaef56.chunk.js.map": "/design-hub/static/js/3.10aaef56.chunk.js.map",
     "index.html": "/design-hub/index.html",
     "static/css/main.44637746.chunk.css.map": "/design-hub/static/css/main.44637746.chunk.css.map",
-    "static/js/2.b9d9d806.chunk.js.LICENSE.txt": "/design-hub/static/js/2.b9d9d806.chunk.js.LICENSE.txt"
+    "static/js/2.7a693152.chunk.js.LICENSE.txt": "/design-hub/static/js/2.7a693152.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.7d69b07b.js",
-    "static/js/2.b9d9d806.chunk.js",
+    "static/js/2.7a693152.chunk.js",
     "static/css/main.44637746.chunk.css",
-    "static/js/main.3179ec63.chunk.js"
+    "static/js/main.73db386e.chunk.js"
   ]
 }
