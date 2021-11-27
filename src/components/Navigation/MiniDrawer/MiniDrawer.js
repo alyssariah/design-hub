@@ -152,7 +152,7 @@ export default function MiniDrawer() {
         <Divider />
         <List className="list">
           {drawerItems.map((item, index) => (
-            <Tooltip title={item.name} disableHoverListener={open}>
+            <Tooltip title={item.name} key={index} disableHoverListener={open}>
               <Link to={item.url} className="link" onClick={handleDrawerClose}>
                 <ListItem
                   button

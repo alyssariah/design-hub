@@ -1,4 +1,4 @@
-import { CssBaseline, makeStyles, StylesProvider } from "@material-ui/core";
+import { CssBaseline, StylesProvider } from "@material-ui/core";
 import Buttons from "components/Buttons/Buttons";
 import Home from "components/Home/Home";
 import MiniDrawer from "components/Navigation/MiniDrawer/MiniDrawer";
