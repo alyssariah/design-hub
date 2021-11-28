@@ -2,7 +2,7 @@ import { LiveEditor, LiveError, LivePreview, LiveProvider } from "react-live";
 import React, { useState } from "react";
 import "./Editor.scss";
 import { Code } from "@material-ui/icons";
-import { IconButton } from "@material-ui/core";
+import { IconButton, Tooltip } from "@material-ui/core";
 
 export default function Editor(props) {
   const [showCode, setShowCode] = useState(false);
@@ -11,13 +11,16 @@ export default function Editor(props) {
   };
   return (
     <>
-      <IconButton
-        aria-label="code"
-        className={showCode ? "code-button active" : "code-button"}
-        onClick={toggleCode}
-      >
-        <Code fontSize="small" />
-      </IconButton>
+      <Tooltip title="View Live Code">
+        <IconButton
+          aria-label="code"
+          className={showCode ? "code-button active" : "code-button"}
+          onClick={toggleCode}
+        >
+          <Code fontSize="small" />
+        </IconButton>
+      </Tooltip>
+
       <LiveProvider
         className="split-view"
         code={props.code}
@@ -25,7 +28,7 @@ export default function Editor(props) {
       >
         <LiveError />
         <LivePreview className="preview" />
-        {showCode && <LiveEditor className="code-editor" />}
+        <LiveEditor className={showCode ? "code-editor" : "code-editor hide"} />
       </LiveProvider>
     </>
   );

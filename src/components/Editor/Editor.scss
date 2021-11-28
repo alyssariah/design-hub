@@ -17,20 +17,27 @@ div.preview {
   background: #333;
   color: white;
   border-radius: 0.25rem;
-  margin: 1.25rem 0;
+  margin: 1.25rem 0 0 0;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: block;
+  opacity: 1;
+  animation: fadeIn 0.25s linear;
+
+  &.hide {
+    display: none;
+  }
 }
 
 .code-button {
   position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
+  top: 0.625rem;
+  right: 0.75rem;
   width: 2rem;
   height: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
   &.active {
     background-color: rgba(0, 0, 0, 0.45);
     color: $color-light;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
 }

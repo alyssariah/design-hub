@@ -119,7 +119,7 @@ export const buttonCode = [
   </div>`,
   },
   {
-    name: "Button with Icon Examples",
+    name: "Buttons with Icons",
     code: `<div className="button-container">
     <Button variant="contained" color="secondary" startIcon={<Delete />}>
       Delete
